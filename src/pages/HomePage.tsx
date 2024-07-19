@@ -1,15 +1,28 @@
 import landingImage from "../assets/landing.png";
 import appDownloadImage from "../assets/appDownload.png";
+import SearchBar, { SearchForm } from "@/components/SearchBar";
+import { useNavigate } from "react-router-dom";
+
 const HomePage = () => {
+  const navigate = useNavigate();
+  const handleSearchSubmit = (searchFormValues: SearchForm) => {
+    navigate({
+      pathname: `/search/${searchFormValues.searchQuery}`,
+    });
+  };
   return (
     <div className="flex flex-col gap-12">
-      <div className="bg-white rounded-lg shadow-md py-8 flex flex-col gap-5 text-center -mt-16">
+      <div className="md:px-32 bg-white rounded-lg shadow-md py-8 flex flex-col gap-5 text-center -mt-16">
         <h1 className="text-5xl font-bold tracking-tight text-orange-600">
-          Tìm kiếm quán bún chả quanh đây
+          Tìm kiếm quán ăn quanh đây
         </h1>
         <span className="text-xl">
           Món ngon đang chờ bạn chỉ với 1 cú click chuột!
         </span>
+        <SearchBar
+          placeholder="Tìm kiếm theo thành phố"
+          onSubmit={handleSearchSubmit}
+        />
       </div>
       <div className="grid md:grid-cols-2 gap-5">
         <img src={landingImage} />
@@ -18,7 +31,7 @@ const HomePage = () => {
             Giao hàng thần tốc
           </span>
           <span>
-            Tải ứng dụng BunCha để nhận đặt hàng nhanh hơn và tối ưu hóa trải
+            Tải ứng dụng ShipNgay để nhận đặt hàng nhanh hơn và tối ưu hóa trải
             nghiệm cá nhân của bạn
           </span>
           <img src={appDownloadImage} />

@@ -9,7 +9,7 @@ const Header = () => {
           className="text-3xl font-bold tracking-tight text-orange-500"
           to="/"
         >
-          BunCha.com
+          ShipNgay.com
         </Link>
         <div className="md:hidden">
           <MobileNav />
