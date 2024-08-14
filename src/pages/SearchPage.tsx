@@ -67,13 +67,14 @@ const SearchPage = () => {
     }));
   };
 
+  if (isLoading) {
+    return <span>Loading</span>;
+  }
+
   if (!results?.data || !city) {
     return <span>Không tìm ra nhà hàng phù hợp!</span>;
   }
 
-  if (isLoading) {
-    <span>Loading</span>;
-  }
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5">
       <div id="cuisine-list">
