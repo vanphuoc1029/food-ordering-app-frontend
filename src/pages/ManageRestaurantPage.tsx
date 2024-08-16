@@ -17,8 +17,7 @@ const ManageRestaurantPage = () => {
   const { updateRestaurant, isLoading: isUpdateLoading } =
     useUpdateMyRestaurant();
 
-  const { orders, isLoading: isGetMyOrdersLoading } =
-    useGetMyRestaurantOrders();
+  const { orders } = useGetMyRestaurantOrders();
 
   const isEditing = !!restaurant;
 
